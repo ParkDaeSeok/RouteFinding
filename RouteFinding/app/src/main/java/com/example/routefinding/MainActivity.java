@@ -117,14 +117,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 takePicture();
-//                if(imageSetAF != 0) {
-//                    if(imageSetBF != imageSetAF) { // 새로운 사진이 세팅되었으면 // 리셋
-//                        bitmap2.eraseColor(Color.TRANSPARENT);
-//                        reset();
-//                    }
-//                    imageSetBF = imageSetAF; // 이전세팅에 이후세팅 정수 대입
-//                    System.out.println("imageSetBF : "+imageSetBF);
-//                }
             }
         });
 
@@ -193,10 +185,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(textList != null) { // textlist이 널이 아니면
-//                    for(int i=0; i<textList.size(); i++) { // 전체 말하기
-//                        tts.speak(textList.get(i), TextToSpeech.QUEUE_FLUSH, null, null);
-//                        System.out.println("textList : "+textList.get(i));
-//                    }
                     String textSum = String.join("  ", textList);
                     tts.speak(textSum, TextToSpeech.QUEUE_FLUSH, null, null);
                 }
@@ -229,7 +217,6 @@ public class MainActivity extends AppCompatActivity {
         imageView2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                System.out.println("imageSet : "+imageSetBF);
                 if (imageSetBF != 0) {
                     if (lockCheck == false) { // lock이 아니고
                         imageView2.setOnLongClickListener(new View.OnLongClickListener() {
@@ -282,11 +269,9 @@ public class MainActivity extends AppCompatActivity {
                                         if (text != null) {
                                             textList.add(text);
                                         } else {
-                                            System.out.println("왜 널이지 ㅋㅋㅋ");
                                         }
                                     }
                                 }
-                                System.out.println("textlist : " + textList);
                                 imageView2.setImageBitmap(bitmap2);
 
                             }
@@ -350,7 +335,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 } else { // 사진이 없을 때 imageSet이 0일때
-                    System.out.println("??");
                     Toast.makeText(MainActivity.this, "사진이 없습니다.", Toast.LENGTH_SHORT).show();
                 }
                 return false;
